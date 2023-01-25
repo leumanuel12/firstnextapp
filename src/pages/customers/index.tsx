@@ -46,13 +46,13 @@ const Customers: NextPage = ({customers}: InferGetStaticPropsType<typeof getStat
 
                 {/* (7) Now we can finally use it here without having the prefix "props" (props.customers)... 
                  ---- and optional chaining or checking if it has data is no more needed...
-                 ---- since data is already guaranted from out async query function getStaticProps */}
+                 ---- since data is already guaranteed from our database query (async query) function getStaticProps */}
 
                 {customers.map( (customer: Customer) => {
                     //console.log(customer.id, customer.name, customer.industry)
                     return (
                         <div
-                            className="max-w-2xl grid grid-cols-3"
+                            className="max-w-2xl grid grid-cols-3 p-3 border-b border-gray-200 max-sm:block max-sm:mb-3"
                             key={customer.id}>
                             <span className="col-span-1 flex mx-auto">{customer.id}</span>
                             <span className="col-span-1 flex mx-auto">{customer.name}</span>
