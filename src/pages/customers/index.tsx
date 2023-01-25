@@ -12,13 +12,15 @@ type Customer = {
 
 export const getStaticProps: GetStaticProps = async () => {
 
-    const result = await axios.get('https://63d12a66120b32bbe8f2a3b9.mockapi.io/customers');
-    //console.log(result.data)
+    //const result = await axios.get('https://63d12a66120b32bbe8f2a3b9.mockapi.io/customers');
+    const result = await axios.get('http://localhost:8000/api/customers/');
+    console.log(result.data)
     
     return {
         props: {
-            customers: result.data,
-        }
+           customers: result.data.customer,
+        },
+        revalidate: 60,
     }
 }
 
